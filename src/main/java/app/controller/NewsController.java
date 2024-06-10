@@ -2,26 +2,26 @@ package app.controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+import app.entity.News;
+import app.model.NewsModel;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import app.entity.Utente;
-import app.model.UtenteModel;
-import jakarta.inject.Inject;
+import jakarta.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class UtenteController
+ * Servlet implementation class NewsController
  */
-
-public class UtenteController extends HttpServlet {
+public class NewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private UtenteModel utenteModel;
+	private NewsModel newsModel;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -29,10 +29,10 @@ public class UtenteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String operazione = request.getParameter("operazione");
 		if (operazione == "" || operazione == null) {
-			throw new ServletException("operazione è null");
-			
+
 		} else {
 			switch (operazione) {
 			case ("add"):
@@ -40,7 +40,7 @@ public class UtenteController extends HttpServlet {
 				request.getRequestDispatcher("/jsp/add.jsp").forward(request, response);
 				break;
 			case ("list"):
-				List<Utente> lst = utenteModel.GetUtenteList();
+				List<News> lst = newsModel.GetNewsList();
 				request.setAttribute("lstutenti", lst);
 				// lst.forEach((u) -> {System.out.println(u.getNome());});
 				request.getRequestDispatcher("/jsp/list_utente.jsp").forward(request, response);
@@ -56,37 +56,37 @@ public class UtenteController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operazione = request.getParameter("operazione");
+		
 		if (operazione == "" || operazione == null) {
-
+			throw new ServletException("operazione è null");
 		} else {
+			HttpSession session = request.getSession();
+			if (session != null ) {
 			switch (operazione) {
 			case ("add"):
-				Utente ut = new Utente(request.getParameter("nome"), request.getParameter("cognome"),
-						request.getParameter("email"));
-				String strDatNat = request.getParameter("DataNascita");
-				LocalDate datanasc = LocalDate.parse(strDatNat, DateTimeFormatter.ISO_LOCAL_DATE);
-				Period p = Period.between(datanasc, LocalDate.now());
-				int eta = p.getYears();
-				if (eta < 18) {
-					System.out.println("error");
-				response.sendRedirect("/Fila1/jsp/testDav.jsp?errore=etaNonValida");
-				break;
-				}
-				ut.setDatanasc(datanasc);
-				utenteModel.saveUtente(ut);
-				List<Utente> lst = utenteModel.GetUtenteList();
-				request.setAttribute("lstutenti", lst);
-				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
+				News nw = new News(request.getParameter("autore"), request.getParameter("genere"));
+
+				String strDatPub = request.getParameter("DataPublicazione");
+				LocalDate dataPubl = LocalDate.parse(strDatPub, DateTimeFormatter.ISO_LOCAL_DATE);
+				nw.setDataPublicazione(dataPubl);
+				String text = request.getParameter("testo");
+				nw.setTesto(text);
+				newsModel.saveNews(nw);
+				List<News> lst = newsModel.GetNewsList();
+				request.setAttribute("lstnews", lst);
+				request.getRequestDispatcher("/jsp/list_utente.jsp").forward(request, response);
 				break;
 			case ("delete"):
-				String Id = request.getParameter("deleteUT");
-				utenteModel.DeleteUtente(Id);
-				List<Utente> uplst = utenteModel.GetUtenteList();
-				request.setAttribute("lstutenti", uplst);
+				String Id = request.getParameter("deleteNW");
+				newsModel.DeleteNews(Id);
+				List<News> uplst = newsModel.GetNewsList();
+				request.setAttribute("lstnews", uplst);
 				request.getRequestDispatcher("/jsp/list_utente.jsp").forward(request, response);
 				break;
 			}
+			}else {
+				response.sendRedirect("/index.jsp?error=nonAut");
+			}
 		}
-
 	}
 }

@@ -1,0 +1,98 @@
+package app.entity;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "news")
+public class News implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id", nullable = false, unique = true)
+	private int id;
+	@Column(length = 45)
+	private String autore;
+	@Column(length = 45)
+	private String genere;
+	@Column(length = 45)
+	private LocalDate dataPublicazione;
+	@Column(length = 5000)
+	private String testo;
+
+	public News(String autore, String genere, LocalDate dataPublicazione, String testo) {
+		super();
+		this.autore = autore;
+		this.genere = genere;
+		this.dataPublicazione = dataPublicazione;
+		this.testo = testo;
+	}
+
+	public News(String autore, String genere, LocalDate dataPublicazione) {
+		super();
+		this.autore = autore;
+		this.genere = genere;
+		this.dataPublicazione = dataPublicazione;
+	}
+
+	public News(String autore, String genere) {
+		super();
+		this.autore = autore;
+		this.genere = genere;
+	}
+
+	public News() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAutore() {
+		return autore;
+	}
+
+	public void setAutore(String autore) {
+		this.autore = autore;
+	}
+
+	public String getGenere() {
+		return genere;
+	}
+
+	public void setGenere(String genere) {
+		this.genere = genere;
+	}
+
+	public LocalDate getDataPublicazione() {
+		return dataPublicazione;
+	}
+
+	public void setDataPublicazione(LocalDate dataPublicazione) {
+		this.dataPublicazione = dataPublicazione;
+	}
+
+	public String getTesto() {
+		return testo;
+	}
+
+	public void setTesto(String testo) {
+		this.testo = testo;
+	}
+
+}

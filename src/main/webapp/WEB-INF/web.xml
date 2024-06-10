@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>NewsController</servlet-name>
+  	<display-name>NewsController</display-name>
+  	<description></description>
+  	<servlet-class>app.controller.NewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>NewsController</servlet-name>
+  	<url-pattern>/NewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UtenteController</servlet-name>
+  	<display-name>UtenteController</display-name>
+  	<description></description>
+  	<servlet-class>app.controller.UtenteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UtenteController</servlet-name>
+  	<url-pattern>/UtenteController</url-pattern>
+  </servlet-mapping>
 </web-app>
