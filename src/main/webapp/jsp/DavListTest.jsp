@@ -8,7 +8,7 @@
 <%@ page import= "java.time.format.DateTimeFormatter"%>
 <%@page import= "java.time.Period" %>
 	
-<!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -24,8 +24,8 @@
       <th scope="col">#</th>
       <th scope="col">Nome</th>
       <th scope="col">Cognome</th>
-      <th scope="col">Eta</th>
-       <th scope="col">Email</th>
+      <th scope="col">Email</th>
+       <th scope="col">Eta</th>
       <th scope="col">Funzioni</th>
     </tr>
   </thead>
