@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.inject.Inject;
 
 import app.entity.Admin;
@@ -52,7 +53,24 @@ public class AdminController extends HttpServlet {
 			List<Admin> uplst = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", uplst);
 			break;
-		}
 
+		case ("login"):
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			boolean flag = adminModel.LoginAdmin(username, password);
+			if (flag) {
+				HttpSession session = request.getSession();
+			} else {
+				response.sendRedirect("/index.jsp");
+			}
+			break;
+
+		case ("logout"):
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				session.invalidate();
+			}
+
+		}
 	}
 }

@@ -31,15 +31,25 @@ public class AdminModel {
 		List<Admin> lst = q.getResultList();
 		return lst;
 	}
+	
 	public void DeleteAdmin(String Id) {
 		Query q = entityManager.createQuery("Delete From Admin u where u.id=" + Id);
 		q.executeUpdate();
 	}
+	
 	public Admin GetAdmin(String Id) {
 		Query q = entityManager.createQuery("Select u FROM Admin u where u.id=" + Id);
 		List<Admin> lst =  q.getResultList();
 		Admin ad = lst.get(0);
 		return ad;
+	}
+	
+	public boolean LoginAdmin(String username, String password) {
+		boolean flag=false;
+		Query q = entityManager.createQuery("Select u FROM Admin u where u.username=" + username + "&& u.password =" + password);
+		List<Admin> lst = q.getResultList();
+		flag = !lst.isEmpty();
+		return flag;
 	}
 	
 	public void UpdateAdmin(Admin u) {
