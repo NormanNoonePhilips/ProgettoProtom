@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,15 +20,15 @@ public class News implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id", nullable = false, unique = true)
+	@Column(name = "news_id", nullable = false, unique = true)
 	private int id;
 	@Column(length = 45)
 	private String autore;
 	@Column(length = 45)
 	private String genere;
-	@Column(length = 45)
+	@Column
 	private LocalDate dataPublicazione;
-	@Column(length = 5000)
+	@Lob
 	private String testo;
 
 	public News(String autore, String genere, LocalDate dataPublicazione, String testo) {

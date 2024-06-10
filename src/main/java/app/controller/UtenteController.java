@@ -9,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import app.entity.Utente;
 import app.model.UtenteModel;
 import jakarta.inject.Inject;
@@ -42,6 +43,8 @@ public class UtenteController extends HttpServlet {
 			case ("list"):
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
+				HttpSession session = request.getSession(false);
+				session.invalidate();
 				// lst.forEach((u) -> {System.out.println(u.getNome());});
 				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
 				break;
@@ -62,28 +65,33 @@ public class UtenteController extends HttpServlet {
 			switch (operazione) {
 			case ("add"):
 				Utente ut = new Utente(request.getParameter("nome"), request.getParameter("cognome"),
-						request.getParameter("email"));
+									   request.getParameter("email"));
 				String strDatNat = request.getParameter("DataNascita");
 				LocalDate datanasc = LocalDate.parse(strDatNat, DateTimeFormatter.ISO_LOCAL_DATE);
 				Period p = Period.between(datanasc, LocalDate.now());
 				int eta = p.getYears();
 				if (eta < 18) {
 					System.out.println("error");
-				response.sendRedirect("/Fila1/jsp/testDav.jsp?errore=etaNonValida");
+				response.sendRedirect("/jsp/testDav.jsp?errore=etaNonValida");
 				break;
 				}
 				ut.setDatanasc(datanasc);
 				utenteModel.saveUtente(ut);
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
-				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
+				request.getRequestDispatcher( "/jsp/DavListTest.jsp").forward(request, response);
 				break;
 			case ("delete"):
+				HttpSession session = request.getSession(false);
+			if (session != null) {
 				String Id = request.getParameter("deleteUT");
 				utenteModel.DeleteUtente(Id);
 				List<Utente> uplst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", uplst);
 				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
+			}else {
+				response.sendRedirect(request.getContextPath() + "/index.jsp?error=nonAut");
+			}
 				break;
 			}
 		}

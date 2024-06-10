@@ -7,8 +7,6 @@
 	<%@page import = "java.time.LocalDate"%>
 <%@ page import= "java.time.format.DateTimeFormatter"%>
 <%@page import= "java.time.Period" %>
-	
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -22,21 +20,19 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Cognome</th>
-      <th scope="col">Email</th>
-       <th scope="col">Eta</th>
+      <th scope="col">Autore</th>
+      <th scope="col">Genere</th>
+      <th scope="col">Data Publ.</th>
       <th scope="col">Funzioni</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
- <c:forEach var="u" items="${lstutenti}">
+ <c:forEach var="u" items="${lstnews}">
     <tr>
       <th scope="row"><h2>${u.getId()}</h2></th>
-      <td><h2>${u.getNome()}</h2></td>
-      <td><h2>${u.getCognome()}</h2></td>
-        <td><h2>${u.getEmail()}</h2></td>
-      <td><h2>${u.getDatanasc()}</h2></td>
+      <td><h2>${u.getAutore()}</h2></td>
+      <td><h2>${u.getGenere()}</h2></td>
+        <td><h2>$getDataPublicazione()}</h2></td>
       <td>
       <form action="/Fila1/UtenteController" method="post" onsubmit="return conferma()">
 		<input type="hidden" name="operazione" value="delete">
@@ -66,4 +62,4 @@ return result;
 }
 </script>
 </body>
-</html></html>
+</html>
