@@ -43,7 +43,7 @@ public class UtenteController extends HttpServlet {
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
 				// lst.forEach((u) -> {System.out.println(u.getNome());});
-				request.getRequestDispatcher("/jsp/list_utente.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
 				break;
 			}
 		}
@@ -83,7 +83,7 @@ public class UtenteController extends HttpServlet {
 				utenteModel.DeleteUtente(Id);
 				List<Utente> uplst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", uplst);
-				request.getRequestDispatcher("/jsp/list_utente.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
 				break;
 			}
 		}

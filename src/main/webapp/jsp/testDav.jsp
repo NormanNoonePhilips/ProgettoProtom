@@ -30,7 +30,10 @@ if (error != null && error.equals("etaNonValida")){
 	out.println("<p style = 'color:red;'> Eta non valida </p>");
 	}
 %>
-
+<form action="/Fila1/UtenteController" method="get">
+		<input type="hidden" name="operazione" value="list">
+		<button type="submit">Lista Utenti</button>
+		</form>
 
 
 </body>
