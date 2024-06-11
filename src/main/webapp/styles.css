@@ -1,0 +1,164 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #a6e4f5;
+}
+.main{
+    display: flex;
+    padding: 30px;
+}
+.registration {
+    
+    flex: none; /* Occupa 1 parte dello spazio disponibile */
+    width: 500px; /* Imposta una larghezza massima per la sezione */
+    max-height: 3000px;
+    background-color: #a6e4f5;
+    /*background-color: rgba(237, 104, 15, 0.5); /* Colore di sfondo con trasparenza */
+    padding:  20 px;
+    border-radius: 5px;
+    text-align: right;
+    transform: translateY(70%);
+    
+}
+
+
+.registration h2 {
+    transform: translateX(-5%);
+    font-family: Georgia, 'Times New Roman', Times, serif, cursive;
+    font-style: oblique;
+    font-size: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.newsletter-btn {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transform: translateX(-75%);
+    font-size: 16px;
+}
+
+.news{
+    flex: 2; /* Occupa 3 parti dello spazio disponibile */
+    
+}
+.news h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif, cursive;
+    font-style: oblique;
+    margin-bottom: 35px; /* Spaziatura tra il titolo e la lista */
+}
+.news li {
+    margin-bottom: 30px; /* Spaziatura tra ciascun elemento */
+    font-size: 20px; /* Dimensione del testo */
+    font-family: Georgia, 'Times New Roman', Times, serif,cursive;
+    color: #080807; /* Colore del testo */
+}
+.news li a {
+    font-size: 20px; /* Dimensione del testo */
+    font-family: Georgia, 'Times New Roman', Times, serif, cursive;
+    font-style: oblique;
+    color: #000000; /* Colore del testo */
+    text-decoration: none; /* Rimuove la sottolineatura del link */
+}
+
+.news li a:hover {
+    text-decoration: underline; /* Aggiunge sottolineatura al passaggio del mouse */
+}
+
+
+
+header {
+    background-color: #1f96b7;
+    color: white;
+    padding: 40px 0;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    /*margin: 0 auto;*/
+    padding: 0 40px;
+
+}
+
+.logo h1 {
+    margin: auto;
+    transform: translateX(35%);
+    font-style: oblique;
+    font-family: Georgia, 'Times New Roman', Times, serif,cursive;
+   
+}
+.logo h2{
+    margin: auto;
+    transform: translateX(60%);
+    font-style: oblique;
+    font-family: Georgia, 'Times New Roman', Times, serif,cursive;
+   
+}
+
+.logo img {
+   position: fixed;
+   left: 2%;
+   transform: translateY(-60%);
+   margin: 0 px;
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons .login-btn
+{
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    transform: translateX(150%);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+.buttons .login-btn:hover
+ {
+    background-color: #e65c00;
+}
+
+footer {
+    background-color: #1f96b7;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+footer .social-icons a {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+footer .social-icons a:hover {
+    color: #007bff;
+}
