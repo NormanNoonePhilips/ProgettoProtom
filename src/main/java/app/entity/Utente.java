@@ -92,5 +92,10 @@ package app.entity;
 			int et = p.getYears();
 			return et;
 		}
+		public String getData() {
+			LocalDate l = getDatanasc();
+			String data = l.toString();
+			return data;
+	}
 	}
 

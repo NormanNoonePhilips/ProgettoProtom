@@ -45,7 +45,7 @@ public class UtenteController extends HttpServlet {
 				HttpSession session = request.getSession(false);
 				session.invalidate();
 				// lst.forEach((u) -> {System.out.println(u.getNome());});
-				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
 				break;
 			}
 		}

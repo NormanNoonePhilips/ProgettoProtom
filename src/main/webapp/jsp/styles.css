@@ -195,15 +195,15 @@ padding-top: 50px; */
 }
 
 #news-logo {
-    transform: translate(40%, -120%);
+    transform: translate(-75%, -15%) scale(80%, 40%);
 }
 
 #admin-logo {
-    transform: translate(-8%, -15%) scale(40%, 40%);
+    transform: translate(-25%, -15%) scale(40%, 40%);
 }
 
 #iscritti-logo {
-    transform: translate(60%, -140%) scale(120%, 120%);
+    transform: translate(-47%, -20%) scale(125%, 50%);
 }
 
 footer {
@@ -211,7 +211,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 0;
 }

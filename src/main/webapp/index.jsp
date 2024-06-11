@@ -20,7 +20,7 @@
             <div class="logo h1">
                 <h1> Easy News</h1>
                 <div class = "logo img">
-                    <img src="./Newsletter.jpg" height="10%" width="10%">
+                    <img src="../images/Newsletter.jpg" height="10%" width="10%">
                 </div>
                 <div class="logo h2">
                     <h2> l'informazione a portata di un click!</h2>
@@ -30,7 +30,9 @@
                
             </nav>
             <div class="buttons">
+            <form action="jsp/home-admin.jsp">
                 <button class="login-btn">Admin Login</button>
+                </form>
             </div>
         </div>
     </header>
