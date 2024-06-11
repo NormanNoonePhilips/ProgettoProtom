@@ -183,6 +183,57 @@ nav ul {
     background-color: #e65c00;
 }
 
+.table-borderless {
+
+    margin-left: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+    /* Rimuovi i bordi dalla tabella */
+    margin-top: 50px;
+    /* Spaziatura tra la tabella e l'header */
+    table-layout: fixed;
+    /* Fissa la larghezza delle celle */
+    width: 100%;
+    /* Larghezza della tabella */
+}
+
+.table-borderless thead {
+    font-style: oblique;
+
+}
+
+.buttons .modifica {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    transform: translateX(10%);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    /* Spaziatura tra i bottoni */
+
+}
+
+.table-borderless th,
+.table-borderless td {
+    padding: 20px;
+    /* Aggiungi padding tra le celle per spaziatura tra le righe */
+    font-size: 20px;
+    /* Correzione della dimensione del font */
+    overflow: hidden;
+    /* Nasconde il contenuto in eccesso */
+    text-overflow: ellipsis;
+    /* Aggiunge i puntini di sospensione per il testo troppo lungo */
+    /* white-space: nowrap;  Impedisce al testo di andare a capo */
+    /* padding: 50 px;
+padding-left: 50px;
+padding-top: 50px; */
+
+
+}
+
 footer {
     background-color: #1f96b7;
     color: #fff;
