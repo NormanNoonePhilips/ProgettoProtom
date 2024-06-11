@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody class="table-group-divider">
- <c:forEach var="u" items="${lstnews}">
+ <c:forEach var="u" items="${lstNews}">
     <tr>
       <th scope="row"><h2>${u.getId()}</h2></th>
       <td><h2>${u.getAutore()}</h2></td>

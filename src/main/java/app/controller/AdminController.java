@@ -64,6 +64,7 @@ public class AdminController extends HttpServlet {
 			boolean flag = adminModel.LoginAdmin(username, password);
 			if (flag) {
 				HttpSession session = request.getSession();
+				session.setAttribute("user", username);
 			} else {
 				response.sendRedirect("/index.jsp");
 			}

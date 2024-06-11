@@ -55,7 +55,7 @@ public class News implements Serializable {
 		this.titolo = titolo;
 		this.genere = genere;
 	}
-	
+
 	public News(String autore, String titolo, String genere, LocalDate dataPublicazione, String testo) {
 		super();
 		this.autore = autore;
@@ -107,6 +107,20 @@ public class News implements Serializable {
 
 	public void setTesto(String testo) {
 		this.testo = testo;
+	}
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+	public String getData() {
+		LocalDate l = getDataPublicazione();
+		String data = l.toString();
+		return data;
 	}
 
 }

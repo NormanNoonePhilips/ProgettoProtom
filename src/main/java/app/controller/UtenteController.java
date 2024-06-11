@@ -37,8 +37,7 @@ public class UtenteController extends HttpServlet {
 		} else {
 			switch (operazione) {
 			case ("add"):
-				request.setAttribute("message", "Inserire i dati dell'utente" + operazione);
-				request.getRequestDispatcher("/jsp/add.jsp").forward(request, response);
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
 				break;
 			case ("list"):
 				List<Utente> lst = utenteModel.GetUtenteList();
@@ -72,7 +71,7 @@ public class UtenteController extends HttpServlet {
 				int eta = p.getYears();
 				if (eta < 18) {
 					System.out.println("error");
-				response.sendRedirect("/jsp/testDav.jsp?errore=etaNonValida");
+				response.sendRedirect("index.jsp?errore=etaNonValida");
 				break;
 				}
 				ut.setDatanasc(datanasc);

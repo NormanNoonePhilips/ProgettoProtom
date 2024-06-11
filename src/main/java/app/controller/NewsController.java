@@ -46,9 +46,8 @@ public class NewsController extends HttpServlet {
 				break;
 			case ("list"):
 				List<News> lst = newsModel.GetNewsList();
-				request.setAttribute("lstNews", lst);
-				// lst.forEach((u) -> {System.out.println(u.getNome());});
-				request.getRequestDispatcher(request.getContextPath() + "/jsp/DavListTest.jsp").forward(request,
+				request.setAttribute("lstnews", lst);
+				request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request,
 						response);
 				break;
 			}
@@ -89,7 +88,7 @@ public class NewsController extends HttpServlet {
 					newsModel.DeleteNews(Id);
 					List<News> uplst = newsModel.GetNewsList();
 					request.setAttribute("lstnews", uplst);
-					request.getRequestDispatcher(request.getContextPath() + "/jsp/DavNewsTest.jsp").forward(request,
+					request.getRequestDispatcher( "/jsp/adNewsList.jsp").forward(request,
 							response);
 					break;
 				}
