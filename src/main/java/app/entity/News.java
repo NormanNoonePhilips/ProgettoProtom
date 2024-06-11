@@ -25,6 +25,8 @@ public class News implements Serializable {
 	@Column(length = 45)
 	private String autore;
 	@Column(length = 45)
+	private String titolo;
+	@Column(length = 45)
 	private String genere;
 	@Column
 	private LocalDate dataPublicazione;
@@ -39,17 +41,28 @@ public class News implements Serializable {
 		this.testo = testo;
 	}
 
-	public News(String autore, String genere, LocalDate dataPublicazione) {
+	public News(String autore, String genere, String titolo, LocalDate dataPublicazione) {
 		super();
 		this.autore = autore;
+		this.titolo = titolo;
 		this.genere = genere;
 		this.dataPublicazione = dataPublicazione;
 	}
 
-	public News(String autore, String genere) {
+	public News(String autore, String titolo, String genere) {
 		super();
 		this.autore = autore;
+		this.titolo = titolo;
 		this.genere = genere;
+	}
+	
+	public News(String autore, String titolo, String genere, LocalDate dataPublicazione, String testo) {
+		super();
+		this.autore = autore;
+		this.titolo = titolo;
+		this.genere = genere;
+		this.dataPublicazione = dataPublicazione;
+		this.testo = testo;
 	}
 
 	public News() {

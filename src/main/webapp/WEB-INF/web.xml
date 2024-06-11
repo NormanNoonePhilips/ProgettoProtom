@@ -22,4 +22,14 @@
   	<servlet-name>UtenteController</servlet-name>
   	<url-pattern>/UtenteController</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>AdminController</servlet-name>
+  	<display-name>AdimnController</display-name>
+  	<description></description>
+  	<servlet-class>app.controller.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminController</servlet-name>
+  	<url-pattern>/AdminController</url-pattern>
+  </servlet-mapping>
 </web-app>

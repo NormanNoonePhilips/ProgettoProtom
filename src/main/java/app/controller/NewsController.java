@@ -71,7 +71,7 @@ public class NewsController extends HttpServlet {
 		//	if (session != null) {
 				switch (operazione) {
 				case ("add"):
-					News nw = new News(request.getParameter("autore"), request.getParameter("genere"));
+					News nw = new News(request.getParameter("autore"), request.getParameter("titolo"), request.getParameter("genere"));
 
 					String strDatPub = request.getParameter("DataPubblicazione");
 					LocalDate dataPubl = LocalDate.parse(strDatPub, DateTimeFormatter.ISO_LOCAL_DATE);

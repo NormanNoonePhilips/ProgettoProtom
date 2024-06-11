@@ -43,14 +43,28 @@ out.println("<p style = 'color:red;'> Non sei Autorizzato ad accedere a questa p
                     <input type="hidden" name="operazione" value="add">
 					<label for="autore"> Inserisci autore</label> <br>
 					<input name="autore" type="text" placeholder="Nome" required> <br>
+					<label for="titolo"> Inserisci titolo</label> <br>
+					<input name="titolo" type="text" placeholder="Titolo" required> <br>
 					<label for="genere"> Inserisci categoria</label> <br>
 					<input name="genere" type="text" placeholder="Cognome" required> <br>
 					<label for="DataPubblicazione"> Inserisci Data Pubblicazione</label> <br>
 					<input name="DataPubblicazione" type="date" placeholder="Data di Nascita" required> <br>
 					<label for="articolo"> Inserisci Articolo</label> <br>
 					<textarea name="articolo" cols="120" rows="30"></textarea> <br>
-					<button type="submit">Registra nuovo utente</button>
+					<button type="submit">Registra nuovo news</button>
                 </form>
-
+                
+                <form action="../AdminController" method="post">
+                    <input type="hidden" name="operazione" value="add">
+					<label for="username"> Inserisci autore</label> <br>
+					<input name="username" type="text" placeholder="Nome" required> <br>
+					<label for="password"> Inserisci titolo</label> <br>
+					<input name="password" type="password" placeholder="Titolo" required> <br>
+					<label for="nome"> Inserisci categoria</label> <br>
+					<input name="nome" type="text" placeholder="nome" required> <br>
+					<label for="cognome"> Inserisci Data Pubblicazione</label> <br>
+					<input name="cognome" type="text" required>
+					<button type="submit">Registra nuovo Admin</button>
+				</form>
 </body>
 </html>
