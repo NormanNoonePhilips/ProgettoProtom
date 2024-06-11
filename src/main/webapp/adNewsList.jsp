@@ -6,6 +6,7 @@
     <title>Home Page - Easy News</title>
     <link rel="stylesheet" href="styles.css">
     <title>Home Page - Easy News</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
 </head>
