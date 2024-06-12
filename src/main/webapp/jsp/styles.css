@@ -225,3 +225,40 @@ footer .social-icons a {
 footer .social-icons a:hover {
     color: #007bff;
 }
+#main-container {
+    padding-left: 50px;
+    max-width: 100%; /* Make sure article takes full width of the container */
+    margin: 30px auto;
+}
+
+#main-container h2 {
+    text-align: center; /* Center the form title */
+}
+
+#main-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#main-container form label {
+    font-weight: bold;
+    margin-left:130px;
+}
+
+#main-container form input[type="text"],
+#main-container form input[type="date"],
+#main-container form textarea {
+    width: 80%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin:auto;
+}
+
+#main-container form textarea {
+    resize: vertical;
+}
+article h2 {
+    text-align: center; 
+}
