@@ -276,14 +276,11 @@ footer .social-icons a:hover {
 }
 
 #main-container form {
-
-form {
-
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-}
+
 #main-container form label {
     font-weight: bold;
     margin-left:130px;
@@ -300,24 +297,5 @@ form {
 }
 
 #main-container form textarea {
-    resize: vertical;
-}
-article h2 {
-    text-align: center; 
-}
-form label {
-    font-weight: bold;
-}
-
-form input[type="text"],
-form input[type="date"],
-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form textarea {
     resize: vertical;
 }
