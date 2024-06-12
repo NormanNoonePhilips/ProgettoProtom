@@ -36,7 +36,7 @@
             </div>
         </div>
     </header>
-    <main class="container">
+    <main id="main-container">
         <article>
             <h2>Modulo di Inserimento Articolo</h2>
             <form action="#" method="POST">
