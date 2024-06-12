@@ -1,0 +1,6 @@
+public News MostRecent(String Id){
+  Query q = entityManager.createQuery("Select n FROM News n ORDER BY timestamp DESC LIMIT 3");
+  List<News> lst =  q.getResultList();
+  News ut = lst.getFirst();
+  return ut;
+}
