@@ -35,9 +35,7 @@ public class NewsModel {
 		q.executeUpdate();
 	}
 	public News GetNews(String Id) {
-		Query q = entityManager.createQuery("Select n FROM News n where n.id=" + Id);
-		List<News> lst =  q.getResultList();
-		News ut = lst.getFirst();
+		News ut = entityManager.find(News.class, Integer.parseInt(Id));
 		return ut;
 	}
 	

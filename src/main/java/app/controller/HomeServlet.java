@@ -37,11 +37,11 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<News> lst = newsModel.GetNewsList();
-		  String error = request.getParameter("errore");
+/*		  String error = request.getParameter("errore");
 		  if (error != null) {
 			  request.setAttribute("errore", error);
 		  }
-		request.setAttribute("lstnews", lst);
+	*/	request.setAttribute("lstnews", lst);
 		request.getRequestDispatcher("/index.jsp").forward(request,
 				response);
 	}

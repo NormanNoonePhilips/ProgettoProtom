@@ -47,7 +47,10 @@ public class AdminModel {
 	
 	public boolean LoginAdmin(String username, String password) {
 		boolean flag=false;
-		Query q = entityManager.createQuery("Select u FROM Admin u where u.username=" + username + "&& u.password =" + password);
+	//	Query q = entityManager.createQuery("Select u FROM Admin u where u.username='" + username + "' AND u.password='" + password+ "'");
+		Query q = entityManager.createQuery("Select u FROM Admin u where u.username= :username  AND u.password= :password");
+		q.setParameter("username", username);
+		q.setParameter("password", password);
 		List<Admin> lst = q.getResultList();
 		flag = !lst.isEmpty();
 		return flag;

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+
 <html lang="it">
 
 <head>
@@ -10,9 +10,7 @@
     <title>Home Page - Easy News</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
     <title>Home Page - Easy News</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -29,35 +27,33 @@
                 </div>
             </div>
             <nav>
-                
 
             </nav>
             <div class="buttons">
-                <button class="login-btn">Admin</button>
+                <button class="login-btn">Admin Login</button>
             </div>
         </div>
     </header>
     <main id="main-container">
         <article>
-            <h2>Modulo di Inserimento Articolo</h2>
-            <form action="#" method="POST">
-            	<input type="hidden" name="operazione" value="update">
-            	<input type="hidden" name="id" value ="${News.getId()}">
-                <label for="author">Autore:</label>
-                <input type="text" id="author" name="autore" value="${News.getAutore()}" required>
+            <form action="#" method="post">
+                <input type="hidden" name="operazione" value="add">
+                <br>
+                <label for="nome"><strong>Inserisci nome</strong> </label>
+                <input name="nome" type="text" placeholder="Nome" required>
+                <label for="cognome"><strong>Inserisci cognome</strong> </label>
+                <input name="cognome" type="text" placeholder="Cognome" required>
+                <label for="username"><strong>Username</strong></label>
+                <input name="username" type="text" placeholder="Username" required>
 
-                <label for="title">Titolo:</label>
-                <input type="text" id="titolo" name="titolo" value="${News.getTitolo()}" required>
 
-                <label for="date">Data di Pubblicazione:</label>
-                <input type="date" id="date" name="DataPublicazione" value="${News.getDataPublicazione()}" required>
-                
-                <label for="content">Testo dell'Articolo:</label>
-                <textarea id="content" name="articolo" rows="10" required> ${News.getTesto()}</textarea>
-                
-                <div class="buttons">
-                    <button type="submit" class="login-btn">Aggiungi Articolo</button>
+                <label for="password"><strong>Password</strong></label>
+                <input name="password" type="password" placeholder="Password" required>
+
+                <div class="buttons" style="left: 30%; position: relative">
+                    <button class="login-btn">Registra nuovo amministratore</button>
                 </div>
+
             </form>
         </article>
     </main><br>

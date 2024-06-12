@@ -64,9 +64,10 @@ public class AdminController extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", username);
 			} else {
-				response.sendRedirect("/index.jsp");
+				request.getRequestDispatcher("/home-admin").forward(request, response);
+				break;
 			}
-			request.getRequestDispatcher(request.getContextPath() + "/index.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/home-admin.jsp").forward(request, response);
 			break;
 
 		case ("logout"):
