@@ -37,7 +37,10 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<News> lst = newsModel.GetNewsList();
-		
+		  String error = request.getParameter("errore");
+		  if (error != null) {
+			  request.setAttribute("errore", error);
+		  }
 		request.setAttribute("lstnews", lst);
 		request.getRequestDispatcher("/index.jsp").forward(request,
 				response);
@@ -47,8 +50,7 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

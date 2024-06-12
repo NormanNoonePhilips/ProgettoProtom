@@ -51,7 +51,7 @@
                 <td>${u.getEmail()}</td>
                 <td>${u.getData()}</td>
                 <td class="buttons">
-                 <button class="modifica">Modifica</button>
+                
                 
                 <form action="UtenteController" method="post" onsubmit="return conferma()">
 		<input type="hidden" name="operazione" value="delete">

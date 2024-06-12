@@ -63,14 +63,15 @@ public class UtenteController extends HttpServlet {
 				int eta = p.getYears();
 				if (eta < 18) {
 					System.out.println("error");
-				response.sendRedirect("index.jsp?errore=etaNonValida");
+					request.setAttribute("errore", "etaNonValida");
+					request.getRequestDispatcher("").forward(request, response);
 				break;
 				}
 				ut.setDatanasc(datanasc);
 				utenteModel.saveUtente(ut);
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
-				request.getRequestDispatcher( "/jsp/archivio-iscritti.jsp").forward(request, response);
+				request.getRequestDispatcher( "HomeServlet?errore=reg").forward(request, response);
 				break;
 			case ("delete"):
 				HttpSession session = request.getSession(false);
@@ -81,7 +82,7 @@ public class UtenteController extends HttpServlet {
 				request.setAttribute("lstutenti", uplst);
 				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
 			}else {
-				response.sendRedirect(request.getContextPath() + "/index.jsp?error=nonAut");
+				response.sendRedirect(request.getContextPath() + "HomeServlet?error=nonAut");
 			}
 				break;
 			case ("list"):

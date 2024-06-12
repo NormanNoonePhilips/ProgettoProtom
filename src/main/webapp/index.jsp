@@ -76,6 +76,9 @@ if (error != null && error.equals("etaNonValida")){
 if (error != null && error.equals("nonAut")){
 out.println("<p style = 'color:red;'> Non sei Autorizzato ad accedere a questa pagina <br> Effettuare il Login </p>");
 }
+if (error != null && error.equals("reg")){
+	out.println("<p style = 'color:green;'> Registrazione avvenuta con Successo </p>");
+	}
 %>     
   
     </section>

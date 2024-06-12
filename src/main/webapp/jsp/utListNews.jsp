@@ -48,7 +48,11 @@
                 <td>${u.getAutore()}</td>
                 <td>${u.getData()}</td>  
                <td class="buttons">
+               <form action="NewsController" method="post">
+               <input type="hidden" name="infoNW" value="${u.getId()}">
+               <input type="hidden" name="operazione" value="info">
                 <button class="modifica">Vedi di pi&#249</button>
+                </form>
                </td>
                 
             </tr>

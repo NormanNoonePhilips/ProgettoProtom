@@ -40,19 +40,20 @@
     <main id="main-container">
         <article>
             <h2>Modulo di Inserimento Articolo</h2>
-            <form action="NewsController" method="POST">
-            	<input type="hidden" name="operazione" value="add">
+            <form action="#" method="POST">
+            	<input type="hidden" name="operazione" value="update">
+            	<input type="hidden" name="id" value ="${News.getId()}">
                 <label for="author">Autore:</label>
-                <input type="text" id="author" name="autore" required>
+                <input type="text" id="author" name="autore" value="${News.getAutore()}" required>
 
                 <label for="title">Titolo:</label>
-                <input type="text" id="titolo" name="titolo" required>
+                <input type="text" id="titolo" name="titolo" value="${News.getTitolo()}" required>
 
                 <label for="date">Data di Pubblicazione:</label>
-                <input type="date" id="date" name="DataPubblicazione" required>
+                <input type="date" id="date" name="DataPublicazione" value="${News.getDataPublicazione()}" required>
                 
                 <label for="content">Testo dell'Articolo:</label>
-                <textarea id="content" name="articolo" rows="10" required></textarea>
+                <textarea id="content" name="articolo" rows="10" required> ${News.getTesto()}</textarea>
                 
                 <div class="buttons">
                     <button type="submit" class="login-btn">Aggiungi Articolo</button>
@@ -73,4 +74,3 @@
 </body>
 
 </html>
-    

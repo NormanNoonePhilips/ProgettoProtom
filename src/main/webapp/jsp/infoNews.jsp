@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -28,12 +29,12 @@
     </header>
     <div class="news-container">
         <div class="news-item">
-            <h2 class="news-title">Titolo della News</h2>
+            <h2 class="news-title">${InfNews.getTitolo()}</h2>
             <div class="news-meta">
-                <span class="news-author"> Mario Rossi</span>
-                <span class="news-date">10 Giugno 2024</span>
+                <span class="news-author"> ${InfNews.getAutore()}</span>
+                <span class="news-date">${InfNews.getData()}</span>
             </div>
-            <p class="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at dapibus nisl. Sed quis accumsan orci. Nullam vel feugiat eros, id scelerisque metus. Ut ac nisl a justo scelerisque fermentum. In hac habitasse platea dictumst. Fusce sit amet lacus vel sapien malesuada malesuada nec non est.</p>
+            <p class="news-text">${InfNews.getTesto()}</p>
         </div>
     </div>
     <footer>

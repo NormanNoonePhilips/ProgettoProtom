@@ -48,11 +48,18 @@
                 <td>${u.getTitolo()} </td>
                 <td>${u.getAutore()}</td>
                 <td>${u.getData()}</td>
-                <td class="buttons"><button class="modifica">Modifica</button>
+                
+                <td class="buttons">
+          		<form action="NewsController" method="post">
+		<input type="hidden" name="operazione" value="updateRed">
+		<input type="hidden" name="UpdateNW" value="${u.getId()}">
+		<button type="submit" class="modifica">Modifica</button>
+		</form>
+                
                 <form action="NewsController" method="post" onsubmit="return conferma()">
 		<input type="hidden" name="operazione" value="delete">
 		<input type="hidden" name="deleteNW" value="${u.getId()}">
-		<button class="modifica">Elimina</button>
+		<button type="submit" class="modifica">Elimina</button>
 		</form>
                     
                 </td>

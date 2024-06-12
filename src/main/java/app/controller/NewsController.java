@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import app.entity.News;
+import app.entity.Utente;
 import app.model.NewsModel;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
@@ -50,6 +51,7 @@ public class NewsController extends HttpServlet {
 				request.getRequestDispatcher("/jsp/utListNews.jsp").forward(request,
 						response);
 				break;
+		      
 			}
 
 		}
@@ -98,7 +100,40 @@ public class NewsController extends HttpServlet {
 					request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request,
 					response);
 					break;
+				case("info"):
+					String IdN = request.getParameter("infoNW");
+					News inf = newsModel.GetNews(IdN);
+					request.setAttribute("InfNews", inf);
+					request.getRequestDispatcher( "/jsp/infoNews.jsp").forward(request,
+							response);
+					break;
+				case("update"):
+					String Idu = request.getParameter("id");
+					News news = newsModel.GetNews(Idu);
+					if(request.getParameter("autore") != "")
+					news.setTitolo(request.getParameter("titolo"));
+					if(request.getParameter("autore") != "")
+					news.setAutore(request.getParameter("autore"));
+					if(request.getParameter("DataPublicazione") != "") {
+						String sd = request.getParameter("DataPublicazione");
+						LocalDate ld = LocalDate.parse(sd, DateTimeFormatter.ISO_LOCAL_DATE);
+						news.setDataPublicazione(ld);
+					}
+					if(request.getParameter("articolo") != "")
+						news.setTesto(request.getParameter("articolo"));
+					newsModel.UpdateNews(news);
+					List<News> lstNW = newsModel.GetNewsList();
+					request.setAttribute("lstnews", lstNW);
+					request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request, response);
+					break;
+				case ("updateRed"):
+					String idN = request.getParameter("UpdateNW");
+					News nwUP = newsModel.GetNews(idN);
+					request.setAttribute("News", nwUP);
+					request.getRequestDispatcher("/jsp/FormUpdatejsp.jsp").forward(request, response);
+					break;
 				}
+				
 //			} else {
 		//		response.sendRedirect("/index.jsp?error=nonAut");
 	//		}
