@@ -206,6 +206,7 @@ padding-top: 50px; */
     transform: translate(-47%, -20%) scale(125%, 50%);
 }
 
+
 footer {
     background-color: #1f96b7;
     color: #fff;
@@ -224,4 +225,43 @@ footer .social-icons a {
 }
 footer .social-icons a:hover {
     color: #007bff;
+}
+
+.news-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+   
+}
+
+.news-item {
+    margin-bottom: 20px;
+}
+
+.news-title {
+    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: oblique;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.news-meta {
+    /*Contiene le info sull'autore e data di pubblicazione*/
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.news-meta .news-author,
+.news-meta .news-date {
+    /*Usato per visualizzare  su righe diverse data e autore*/
+    display: block;
+}
+
+.news-text {
+    font-size: 16px;
+    line-height: 1.6;
 }
