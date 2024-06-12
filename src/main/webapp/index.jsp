@@ -20,7 +20,7 @@
             <div class="logo h1">
                 <h1> Easy News</h1>
                 <div class = "logo img">
-                    <img src="../images/Newsletter.jpg" height="10%" width="10%">
+                    <img src="/images/Newsletter.jpg" height="10%" width="10%">
                 </div>
                 <div class="logo h2">
                     <h2> l'informazione a portata di un click!</h2>
@@ -40,9 +40,9 @@
     <div class ="news">
        <h1>Ultime notizie</h1> 
        <ul class = "news li">
-        <li><a href = "a" >Scosse di terremoto a Fuorigrotta, terrore tra i cittadini. (20 Maggio 2024)</a></li>
-        <li><a href = "a">Intervista a Chiara Ferragni: la verità sul divorzio. (10 Maggio 2024)</a></li>
-        <li><a href = "a">Caldo tropicale in arrivo, temperature previste oltre i 35°C (5 Maggio 2024)</a></li>
+       <c:forEach var="u" items="${lstnews}">
+        <li><a href = "a"><strong>${u.getTitolo()}</strong> a cura di <i>${u.getAutore()} (${u.getData()})</i></a></li>
+        </c:forEach>
        </ul>
        
        <div class = "buttons">

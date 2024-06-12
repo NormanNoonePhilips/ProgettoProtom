@@ -39,14 +39,6 @@ public class UtenteController extends HttpServlet {
 			case ("add"):
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
 				break;
-			case ("list"):
-				List<Utente> lst = utenteModel.GetUtenteList();
-				request.setAttribute("lstutenti", lst);
-				HttpSession session = request.getSession(false);
-				session.invalidate();
-				// lst.forEach((u) -> {System.out.println(u.getNome());});
-				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
-				break;
 			}
 		}
 	}
@@ -78,7 +70,7 @@ public class UtenteController extends HttpServlet {
 				utenteModel.saveUtente(ut);
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
-				request.getRequestDispatcher( "/jsp/DavListTest.jsp").forward(request, response);
+				request.getRequestDispatcher( "/jsp/archivio-iscritti.jsp").forward(request, response);
 				break;
 			case ("delete"):
 				HttpSession session = request.getSession(false);
@@ -87,11 +79,19 @@ public class UtenteController extends HttpServlet {
 				utenteModel.DeleteUtente(Id);
 				List<Utente> uplst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", uplst);
-				request.getRequestDispatcher("/jsp/DavListTest.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
 			}else {
 				response.sendRedirect(request.getContextPath() + "/index.jsp?error=nonAut");
 			}
 				break;
+			case ("list"):
+				List<Utente> lstlst = utenteModel.GetUtenteList();
+				request.setAttribute("lstutenti", lstlst);
+				HttpSession session2 = request.getSession(false);
+				session2.invalidate();
+				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
+				break;
+			
 			}
 		}
 

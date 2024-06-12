@@ -25,15 +25,11 @@ public class AdminController extends HttpServlet {
 		switch (operazione) {
 		case ("add"):
 			HttpSession session = request.getSession(false);
-		if (session != null) {
-			request.getRequestDispatcher(request.getContextPath() + "/jsp/addAdmin.jsp").forward(request,
-					response);
+			if (session != null) {
+				request.getRequestDispatcher(request.getContextPath() + "/jsp/addAdmin.jsp").forward(request, response);
 			}
 			break;
-		case ("list"):
-			List<Admin> lst = adminModel.GetAdminList();
-			request.setAttribute("lstadmin", lst);
-			break;
+
 		}
 	}
 
@@ -75,6 +71,10 @@ public class AdminController extends HttpServlet {
 			if (session != null) {
 				session.invalidate();
 			}
+		case ("list"):
+			List<Admin> lstad = adminModel.GetAdminList();
+			request.setAttribute("lstadmin", lstad);
+			break;
 
 		}
 	}

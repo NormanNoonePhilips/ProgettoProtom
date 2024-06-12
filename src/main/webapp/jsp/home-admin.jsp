@@ -36,15 +36,15 @@
 
     <main class="main">
         <div class="buttons">
-       	  <form action="../NewsController" method="get" >	
+       	  <form action="../NewsController" method="post" >	
        	  <input type="hidden" name="operazione" value="list">
           <button type="submit" class="login-btn" id="news-button">Archivio News</button>
           </form>
-            <form action="../AdminController" method="get">	
+            <form action="../AdminController" method="post">	
        	  	<input type="hidden" name="operazione" value="list">
             <button type="submit" class="login-btn" id="admin-button">Lista Admin</button>
             </form>
-            <form action="../UtenteController" method="get">	
+            <form action="../UtenteController" method="post">	
        	    <input type="hidden" name="operazione" value="list">
             <button type="submit" class="login-btn" id="iscritti-button">Lista Iscritti</button>
             </form>

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import = "java.util.List" %>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -40,21 +42,17 @@
             
         </thead>
         <tbody class ="table-borderless th td">
+            <c:forEach var="u" items="${lstnews}">
             <tr>
-                <td>il cazzo che mi incorona </td>
-                <td>Ilaria Sorrentino</td>
-               <td>11 Giugno 2024</td>  
+                <td>${u.getTitolo()} </td>
+                <td>${u.getAutore()}</td>
+                <td>${u.getData()}</td>  
                <td class="buttons">
                 <button class="modifica">Vedi di pi&#249</button>
                </td>
                 
             </tr>
-            <tr>
-                <td>il cazzo che mi incorona </td>
-                <td>Ilaria Sorrentino</td>
-                <td>11 Giugno 2024</td>
-                
-            </tr>
+            </c:forEach>
         </tbody>
 
     </table>

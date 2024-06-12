@@ -47,7 +47,7 @@ public class NewsController extends HttpServlet {
 			case ("list"):
 				List<News> lst = newsModel.GetNewsList();
 				request.setAttribute("lstnews", lst);
-				request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request,
+				request.getRequestDispatcher("/jsp/utListNews.jsp").forward(request,
 						response);
 				break;
 			}
@@ -80,7 +80,7 @@ public class NewsController extends HttpServlet {
 					newsModel.saveNews(nw);
 					List<News> lst = newsModel.GetNewsList();
 					request.setAttribute("lstnews", lst);
-					request.getRequestDispatcher("/jsp/DavNewsTest.jsp").forward(request,
+					request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request,
 							response);
 					break;
 				case ("delete"):
@@ -90,6 +90,13 @@ public class NewsController extends HttpServlet {
 					request.setAttribute("lstnews", uplst);
 					request.getRequestDispatcher( "/jsp/adNewsList.jsp").forward(request,
 							response);
+					break;
+				
+				case ("list"):
+					List<News> lstlst = newsModel.GetNewsList();
+					request.setAttribute("lstnews", lstlst);
+					request.getRequestDispatcher("/jsp/adNewsList.jsp").forward(request,
+					response);
 					break;
 				}
 //			} else {
