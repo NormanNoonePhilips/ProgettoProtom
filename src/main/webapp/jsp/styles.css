@@ -163,7 +163,7 @@ nav ul {
   border: none; /* Rimuovi i bordi dalla tabella */
   margin-top: 50px; /* Spaziatura tra la tabella e l'header */
   table-layout: fixed; /* Fissa la larghezza delle celle */
-  width: 100%; /* Larghezza della tabella */
+  /* Larghezza della tabella */
 }
 .table-borderless thead{
 font-style: oblique;
