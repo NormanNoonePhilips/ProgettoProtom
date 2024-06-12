@@ -41,16 +41,16 @@
             <h2>Modulo di Inserimento Articolo</h2>
             <form action="#" method="POST">
                 <label for="author">Autore:</label>
-                <input type="text" id="author" name="author" required>
+                <input type="text" id="author" name="autore" required>
 
                 <label for="title">Titolo:</label>
                 <input type="text" id="titolo" name="titolo" required>
 
                 <label for="date">Data di Pubblicazione:</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" name="DataPubblicazione" required>
                 
                 <label for="content">Testo dell'Articolo:</label>
-                <textarea id="content" name="content" rows="10" required></textarea>
+                <textarea id="content" name="articolo" rows="10" required></textarea>
                 
                 <div class="buttons">
                     <button type="submit" class="login-btn">Aggiungi Articolo</button>

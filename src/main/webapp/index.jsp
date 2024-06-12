@@ -92,7 +92,9 @@ out.println("<p style = 'color:red;'> Non sei Autorizzato ad accedere a questa p
     </div>
 </footer>
 <script>
-
+if(session != null){
+	
+}
 </script>
 
 </body>

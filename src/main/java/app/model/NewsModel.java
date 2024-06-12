@@ -41,9 +41,14 @@ public class NewsModel {
 		return ut;
 	}
 	
-	public void UpdateUtente(News n) {
+	public void UpdateNews(News n) {
 		entityManager.merge(n);
 	}
+	public List<News> MostRecent(){
+		  Query q = entityManager.createQuery("Select n FROM News n ORDER BY n.dataPublicazione DESC LIMIT 3");
+		  List<News> lst =  q.getResultList();
+		  return lst;
+		}
 	
 	
 }

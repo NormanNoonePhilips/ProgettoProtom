@@ -50,8 +50,14 @@
                 <td>${u.getCognome()}</td>
                 <td>${u.getEmail()}</td>
                 <td>${u.getData()}</td>
-                <td class="buttons"><button class="modifica">Modifica</button>
+                <td class="buttons">
+                 <button class="modifica">Modifica</button>
+                
+                <form action="UtenteController" method="post" onsubmit="return conferma()">
+		<input type="hidden" name="operazione" value="delete">
+		<input type="hidden" name="deleteUT" value="${u.getId()}">
                     <button class="modifica">Elimina</button>
+                    </form>
                 </td>
            </tr>
            </c:forEach>
@@ -67,5 +73,11 @@
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
 </footer>
+<script>
+function conferma() {
+let result = confirm("Sei sicuro di voler eliminare quest utente?");
+return result;
+}
+</script>
 </body>
 </html>

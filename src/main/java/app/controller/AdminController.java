@@ -45,6 +45,7 @@ public class AdminController extends HttpServlet {
 			adminModel.saveAdmin(ad);
 			List<Admin> lst = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", lst);
+			request.getRequestDispatcher(request.getContextPath() + "/jsp/lista-admin.jsp").forward(request, response);
 			break;
 
 		case ("delete"):
@@ -52,6 +53,7 @@ public class AdminController extends HttpServlet {
 			adminModel.DeleteAdmin(Id);
 			List<Admin> uplst = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", uplst);
+			request.getRequestDispatcher("/jsp/lista-admin.jsp").forward(request, response);
 			break;
 
 		case ("login"):
@@ -64,6 +66,7 @@ public class AdminController extends HttpServlet {
 			} else {
 				response.sendRedirect("/index.jsp");
 			}
+			request.getRequestDispatcher(request.getContextPath() + "/index.jsp").forward(request, response);
 			break;
 
 		case ("logout"):
@@ -74,6 +77,7 @@ public class AdminController extends HttpServlet {
 		case ("list"):
 			List<Admin> lstad = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", lstad);
+			request.getRequestDispatcher("/jsp/lista-admin.jsp").forward(request, response);
 			break;
 
 		}

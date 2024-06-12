@@ -40,6 +40,11 @@
             <tr>
                 <td><strong>Nome</strong></td>
                 <td><strong>Cognome</strong></td>
+              <td class="buttons">
+              <form action="AdminController" method="get">
+              <input type="hidden" name="operazione" value="add">
+              <button class="modifica">Aggiungi nuovo Admin</button>
+              </form></td>
             </tr>
 
         </thead>
@@ -48,6 +53,12 @@
             <tr>
                 <td>${u.getNome()}</td>
                 <td>${u.getCognome()}</td>
+                <td class="buttons">
+                  <form action="AdminController" method="post" onsubmit="return conferma()">
+		<input type="hidden" name="operazione" value="delete">
+		<input type="hidden" name="deleteAD" value="${u.getId()}">
+                <button class="modifica">Elimina</button>
+                </form></td> 
             </tr>
           </c:forEach>
         </tbody>
@@ -64,7 +75,12 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
-
+<script>
+function conferma() {
+let result = confirm("Sei sicuro di voler eliminare quest utente?");
+return result;
+}
+</script>
 </body>
 
 </html>
