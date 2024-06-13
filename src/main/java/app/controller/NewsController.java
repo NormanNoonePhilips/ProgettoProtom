@@ -39,7 +39,7 @@ public class NewsController extends HttpServlet {
 			case ("add"):
 				HttpSession session = request.getSession(false);
 				if (session != null) {
-					request.getRequestDispatcher(request.getContextPath() + "/jsp/addNews.jsp").forward(request,
+					request.getRequestDispatcher("/jsp/FormInserimento.jsp").forward(request,
 							response);
 				} else {
 					response.sendRedirect(request.getContextPath() + "/index.jsp?error=nonAut");

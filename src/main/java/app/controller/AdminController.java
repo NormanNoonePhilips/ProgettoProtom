@@ -11,13 +11,17 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.inject.Inject;
 
 import app.entity.Admin;
+import app.entity.News;
 import app.model.AdminModel;
+import app.model.NewsModel;
 
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private AdminModel adminModel;
+	@Inject
+	private NewsModel newsModel;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -26,7 +30,7 @@ public class AdminController extends HttpServlet {
 		case ("add"):
 			HttpSession session = request.getSession(false);
 			if (session != null) {
-				request.getRequestDispatcher(request.getContextPath() + "/jsp/addAdmin.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/AddAdmin.jsp").forward(request, response);
 			}
 			break;
 
@@ -45,7 +49,7 @@ public class AdminController extends HttpServlet {
 			adminModel.saveAdmin(ad);
 			List<Admin> lst = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", lst);
-			request.getRequestDispatcher(request.getContextPath() + "/jsp/lista-admin.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/lista-admin.jsp").forward(request, response);
 			break;
 
 		case ("delete"):
@@ -75,6 +79,10 @@ public class AdminController extends HttpServlet {
 			if (session != null) {
 				session.invalidate();
 			}
+			List<News> lst2 = newsModel.GetNewsList();
+			request.setAttribute("lstnews", lst2);
+			request.getRequestDispatcher("/index.jsp").forward(request,
+					response);
 		case ("list"):
 			List<Admin> lstad = adminModel.GetAdminList();
 			request.setAttribute("lstadmin", lstad);

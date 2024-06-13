@@ -10,7 +10,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.jsp.PageContext;
+import app.entity.News;
 import app.entity.Utente;
+import app.model.NewsModel;
 import app.model.UtenteModel;
 import jakarta.inject.Inject;
 
@@ -23,6 +26,9 @@ public class UtenteController extends HttpServlet {
 
 	@Inject
 	private UtenteModel utenteModel;
+	@Inject
+	private NewsModel newsModel;
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -62,16 +68,21 @@ public class UtenteController extends HttpServlet {
 				Period p = Period.between(datanasc, LocalDate.now());
 				int eta = p.getYears();
 				if (eta < 18) {
-					System.out.println("error");
-					request.setAttribute("errore", "etaNonValida");
-					request.getRequestDispatcher("").forward(request, response);
+					System.out.println("err");	
+					List<News> lst = newsModel.GetNewsList();
+					request.setAttribute("lstnews", lst);
+					request.getRequestDispatcher("/index.jsp?err=eta").forward(request,
+							response);
 				break;
 				}
 				ut.setDatanasc(datanasc);
 				utenteModel.saveUtente(ut);
 				List<Utente> lst = utenteModel.GetUtenteList();
 				request.setAttribute("lstutenti", lst);
-				request.getRequestDispatcher( "HomeServlet?errore=reg").forward(request, response);
+				List<News> lst2 = newsModel.GetNewsList();
+				request.setAttribute("lstnews", lst2);
+				request.getRequestDispatcher("/index.jsp?err=reg").forward(request,
+						response);
 				break;
 			case ("delete"):
 				HttpSession session = request.getSession(false);
@@ -82,7 +93,7 @@ public class UtenteController extends HttpServlet {
 				request.setAttribute("lstutenti", uplst);
 				request.getRequestDispatcher("/jsp/archivio-iscritti.jsp").forward(request, response);
 			}else {
-				response.sendRedirect(request.getContextPath() + "HomeServlet?error=nonAut");
+				response.sendRedirect(request.getContextPath());
 			}
 				break;
 			case ("list"):

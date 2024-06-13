@@ -15,14 +15,16 @@
             <div class="logo h1">
                 <h1> Easy News</h1>
                 <div class = "logo img">
-                    <img src="images/Newsletter.jpg" height="10%" width="10%">
+                    <a href="${pageContext.request.contextPath}"><img src="images/Newsletter.jpg" height="10%" width="10%"></a>
                 </div>
                 <div class="logo h2">
                     <h2> l'informazione a portata di un click!</h2>
                 </div>
             </div>
             <div class="buttons">
+               <form action="jsp/Login.jsp">
                 <button class="login-btn">Admin Login</button>
+                </form>
                 
             </div>
         </div>

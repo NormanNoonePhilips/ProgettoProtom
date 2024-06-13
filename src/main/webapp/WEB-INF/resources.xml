@@ -2,8 +2,8 @@
 <tomee>
 <Resource id="connessione_db_web" type="DataSource">
     JdbcDriver	com.mysql.cj.jdbc.Driver
-    JdbcUrl	jdbc:mysql://localhost:3306/news_progetto
+    JdbcUrl	jdbc:mysql://localhost:3306/datbase_progetto
     UserName	root
-    Password    12345
+    Password    Zxcvbnm,.123
 </Resource>
 </tomee>

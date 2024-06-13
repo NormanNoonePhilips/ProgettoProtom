@@ -68,9 +68,9 @@
 					<input name="check" type="checkbox" required> <br> <br>
        			 <button class="newsletter-btn" type="submit">Iscriviti alla Newsletter</button>
         </form>
-                <% 
-            String error = request.getParameter("errore");
-if (error != null && error.equals("etaNonValida")){
+            <p>    <% 
+   	String error = request.getParameter("err");
+if (error != null && error.equals("eta")){
 	out.println("<p style = 'color:red;'> Eta non valida </p>");
 	}
 if (error != null && error.equals("nonAut")){
@@ -80,7 +80,7 @@ if (error != null && error.equals("reg")){
 	out.println("<p style = 'color:green;'> Registrazione avvenuta con Successo </p>");
 	}
 %>     
-  
+  </p>
     </section>
 </main>
  
@@ -95,10 +95,7 @@ if (error != null && error.equals("reg")){
     </div>
 </footer>
 <script>
-if(session != null){
-	
-	
-}
+
 </script>
 
 </body>

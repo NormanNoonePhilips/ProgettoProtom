@@ -18,7 +18,7 @@
             <div class="logo h1">
                 <h1> Easy News</h1>
                 <div class = "logo img">
-                    <img src="images/Newsletter.jpg" height="10%" width="10%">
+                     <a href="${pageContext.request.contextPath}"><img src="images/Newsletter.jpg" height="10%" width="10%"></a>
                 </div>
                 <div class="logo h2">
                     <h2> l'informazione a portata di un click!</h2>
@@ -28,7 +28,10 @@
                
             </nav>
             <div class="buttons">
-                <button class="login-btn">Admin Logout</button>
+                <form action="./AdminController" method="post">
+            <input type="hidden" name="operazione" value="logout">
+                <button class="login-btn">Logout</button>
+                </form>
                 
             </div>
         </div>
